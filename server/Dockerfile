@@ -1,0 +1,13 @@
+FROM esycat/teamcity-base
+
+MAINTAINER "Eugene Janusov" <esycat@gmail.com>
+
+ENV TEAMCITY_PORT 8080
+ENV TEAMCITY_SERVER_MEM_OPTS -Xmx2g
+
+WORKDIR $TEAMCITY_DIR
+USER $TEAMCITY_USER
+ENTRYPOINT ["bin/teamcity-server.sh"]
+CMD ["run"]
+EXPOSE $TEAMCITY_PORT
+
