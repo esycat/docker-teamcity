@@ -12,6 +12,6 @@ Pull the image, create a new container and start it:
 
 ```bash
 docker pull esycat/teamcity-agent
-docker create --name teamcity-agent-1 -p 9090:9090 esycat/teamcity-agent
+docker create --name teamcity-agent-1 -p 9090:9090 --restart=always esycat/teamcity-agent
 docker start teamcity-agent-1
 ```
