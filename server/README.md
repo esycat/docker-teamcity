@@ -1,4 +1,5 @@
 # TeamCity
+[![](https://badge.imagelayers.io/esycat/teamcity-server:latest.svg)](https://imagelayers.io/?images=esycat/teamcity-server:latest 'Get your own badge on imagelayers.io')
 
 [TeamCity](https://jetbrains.com/teamcity/) is a continuous integration and build management system from [JetBrains](https://jetbrains.com/).
 
