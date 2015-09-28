@@ -11,13 +11,14 @@ ENV TEAMCITY_PREFIX /opt
 ENV TEAMCITY_DIR $TEAMCITY_PREFIX/$TEAMCITY_SUFFIX
 ENV TEAMCITY_HOME /var/lib/$TEAMCITY_SUFFIX
 
+# downloading and unpacking the distribution
 WORKDIR $TEAMCITY_PREFIX
-ADD https://download.jetbrains.com/teamcity/$TEAMCITY_DISTFILE $TEAMCITY_PREFIX/
-# COPY $TEAMCITY_DISTFILE $TEAMCITY_PREFIX/
-RUN tar -xf $TEAMCITY_DISTFILE
-RUN rm $TEAMCITY_DISTFILE
-RUN mv TeamCity $TEAMCITY_SUFFIX
+RUN wget https://download.jetbrains.com/teamcity/$TEAMCITY_DISTFILE && \
+    tar -xf $TEAMCITY_DISTFILE && \
+    rm $TEAMCITY_DISTFILE && \
+    mv TeamCity $TEAMCITY_SUFFIX
 
+# preparing home (data) directory and user+group
 RUN mkdir $TEAMCITY_HOME
 RUN groupadd -r $TEAMCITY_USER
 RUN useradd -r -g $TEAMCITY_USER -d $TEAMCITY_HOME $TEAMCITY_USER
