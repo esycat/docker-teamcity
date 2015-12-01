@@ -19,4 +19,3 @@ USER $TEAMCITY_USER
 ENTRYPOINT ["bin/teamcity-agent.sh"]
 CMD ["run"]
 EXPOSE $TEAMCITY_PORT
-

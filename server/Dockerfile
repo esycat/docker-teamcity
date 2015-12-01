@@ -10,4 +10,3 @@ USER $TEAMCITY_USER
 ENTRYPOINT ["bin/teamcity-server.sh"]
 CMD ["run"]
 EXPOSE $TEAMCITY_PORT
-
