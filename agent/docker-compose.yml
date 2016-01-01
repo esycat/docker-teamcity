@@ -1,0 +1,10 @@
+teamcity-agent:
+    # build: .
+    image: esycat/teamcity-agent
+    restart: always
+    expose:
+        - 9090
+    env:
+        TEMCITY_SERVER_URL=https://teamcity/
+    volumes:
+        - /etc/localtime:/etc/localtime:ro

@@ -1,0 +1,11 @@
+teamcity-server:
+    # build: .
+    image: esycat/teamcity-server
+    container_name: teamcity-server
+    restart: always
+    ports:
+        - 80:8080
+    volumes:
+        - /etc/localtime:/etc/localtime:ro
+        - /data/teamcity:/var/lib/teamcity
+        - /data/teamcity/conf:/opt/teamcity/conf
