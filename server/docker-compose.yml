@@ -1,4 +1,4 @@
-teamcity-server:
+server:
     # build: .
     image: esycat/teamcity-server
     container_name: teamcity-server

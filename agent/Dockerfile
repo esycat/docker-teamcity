@@ -5,17 +5,18 @@ MAINTAINER "Eugene Janusov" <esycat@gmail.com>
 ENV TEAMCITY_PORT 9090
 ENV TEAMCITY_AGENT_DIR ${TEAMCITY_DIR}-agent
 ENV TEAMCITY_AGENT_MEM_OPTS -Xmx2g
+ENV TEAMCITY_AGENT_PREPARE_SCRIPT=./teamcity-agent.sh
 
 RUN mkdir $TEAMCITY_AGENT_DIR
-RUN unzip -d $TEAMCITY_AGENT_DIR $TEAMCITY_DIR/webapps/ROOT/update/buildAgent.zip
+RUN unzip -d $TEAMCITY_AGENT_DIR $TEAMCITY_DIR/webapps/ROOT/update/buildAgent.zip && \
+    chown -R $TEAMCITY_USER:$TEAMCITY_USER $TEAMCITY_AGENT_DIR && \
+    chmod +x $TEAMCITY_AGENT_DIR/bin/*.sh
+COPY teamcity-agent.sh $TEAMCITY_AGENT_DIR/bin/
 RUN rm -rf $TEAMCITY_DIR
 
 WORKDIR $TEAMCITY_AGENT_DIR
-COPY teamcity-agent.sh bin/
-RUN chmod +x bin/*.sh
-RUN chown -R $TEAMCITY_USER:$TEAMCITY_USER .
-
 USER $TEAMCITY_USER
-ENTRYPOINT ["bin/teamcity-agent.sh"]
+
+ENTRYPOINT ["bin/agent.sh"]
 CMD ["run"]
 EXPOSE $TEAMCITY_PORT
