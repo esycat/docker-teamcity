@@ -7,5 +7,6 @@ server:
         - 80:8080
     volumes:
         - /etc/localtime:/etc/localtime:ro
+        - /etc/timezone:/etc/timezone:ro
         - /data/teamcity:/var/lib/teamcity
         - /data/teamcity/conf:/opt/teamcity/conf

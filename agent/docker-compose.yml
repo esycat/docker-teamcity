@@ -10,3 +10,4 @@ agent:
         - TEAMCITY_SERVER_URL=https://teamcity/
     volumes:
         - /etc/localtime:/etc/localtime:ro
+        - /etc/timezone:/etc/timezone:ro
