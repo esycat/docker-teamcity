@@ -1,5 +1,9 @@
 # TeamCity
 
+**Deprecation Notice**: JetBrains now provides official Docker images for TeamCity [Server](https://hub.docker.com/r/jetbrains/teamcity-server/) and [Agent](https://hub.docker.com/r/jetbrains/teamcity-agent/).
+
+---
+
 [TeamCity](https://jetbrains.com/teamcity/) is a continuous integration and build management system from [JetBrains](https://jetbrains.com/).
 
 Version `9.1.6`, build `37459` (released January 29, 2016).
