@@ -2,7 +2,7 @@ FROM esycat/java:oracle-8
 
 MAINTAINER "Eugene Janusov" <esycat@gmail.com>
 
-ENV TEAMCITY_VERSION 9.1.5
+ENV TEAMCITY_VERSION 9.1.6
 ENV TEAMCITY_USER teamcity
 ENV TEAMCITY_SUFFIX teamcity
 
