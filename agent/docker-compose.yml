@@ -1,13 +1,16 @@
-agent:
-    # build: .
-    image: esycat/teamcity-agent
-    container_name: teamcity-agent
-    hostname: agent-bb8
-    restart: always
-    expose:
-        - 9090
-    environment:
-        - TEAMCITY_SERVER_URL=https://teamcity/
-    volumes:
-        - /etc/localtime:/etc/localtime:ro
-        - /etc/timezone:/etc/timezone:ro
+version: '3.5'
+
+services:
+    agent:
+        build: .
+        image: esycat/teamcity-agent
+        container_name: teamcity-agent
+        hostname: teamcity-agent
+        restart: always
+        expose:
+            - 9090
+        environment:
+            - TEAMCITY_SERVER_URL=https://teamcity/
+        volumes:
+            - /etc/localtime:/etc/localtime:ro
+            - /etc/timezone:/etc/timezone:ro

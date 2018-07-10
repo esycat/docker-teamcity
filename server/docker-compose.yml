@@ -1,12 +1,16 @@
-server:
-    # build: .
-    image: esycat/teamcity-server
-    container_name: teamcity-server
-    restart: always
-    ports:
-        - 80:8080
-    volumes:
-        - /etc/localtime:/etc/localtime:ro
-        - /etc/timezone:/etc/timezone:ro
-        - /data/teamcity:/var/lib/teamcity
-        - /data/teamcity/conf:/opt/teamcity/conf
+version: '3.5'
+
+services:
+    server:
+        build: .
+        image: esycat/teamcity-server
+        container_name: teamcity-server
+        hostname: teamcity-server
+        restart: always
+        ports:
+            - 80:8080
+        volumes:
+            - /etc/localtime:/etc/localtime:ro
+            - /etc/timezone:/etc/timezone:ro
+            - /data/teamcity:/var/lib/teamcity
+            - /data/teamcity/conf:/opt/teamcity/conf
